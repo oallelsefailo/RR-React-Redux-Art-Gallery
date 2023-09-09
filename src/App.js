@@ -39,4 +39,13 @@ function App(props) {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  objectId: state.data.objectId,
+});
+
+useEffect(() => {
+  dispatch(fetchData());
+}, [props.objectId, dispatch]);
+
+
+export default connect(mapStateToProps)(App);
